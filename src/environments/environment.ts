@@ -1,4 +1,5 @@
 export const environment = {
+  production: false,
   firebase: {
     apiKey: "AIzaSyB2k6CaXIBKADoZZJKfI1EC5pesNkx_JQ4",
     authDomain: "zelottery.firebaseapp.com",

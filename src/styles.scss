@@ -1,1 +1,22 @@
 /* You can add global styles to this file, and also import other style files */
+//@import "../public/assets/css/main.css";
+//@import "../public/assets/css/responsive.css";
+//@import "../public/assets/css/styles.css";
+//@import "../public/assets/css/styles-app-loading";
+//
+@use '@coreui/coreui/scss/coreui' as *;
+
+html, body {
+  width: 100%;
+  height: 100%;
+}
+
+.background {
+  -webkit-background-size: cover;
+  -o-background-size: cover;
+  -moz-background-size: cover;
+  background: url('../public/assets/img/about2-bg.jpg') no-repeat fixed top center;
+  background-size: cover;
+  width: 100%;
+  height: 100vh;
+}

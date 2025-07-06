@@ -1,0 +1,41 @@
+.loading-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  backdrop-filter: blur(2px);
+  background: rgba(0, 0, 0, 0.1);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10;
+}
+
+.theme-btn {
+  //width: 96px;
+  //height: 96px;
+  font-weight: 500;
+  border-radius: 2rem;
+  transition: background-color 0.5s ease, transform 1s ease;
+  .theme-icon {
+    width: 1.2rem;
+    height: 1.2rem;
+    transition: transform 0.5s ease;
+  }
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.theme-icon {
+  //transition: transform 2s ease;
+  height: 1.2rem;
+  width: 1.2rem;
+}
+
+:host-context([data-coreui-theme='dark']) .theme-icon {
+  transform: rotate(-360deg);
+  transition: transform 1s ease;
+}
+

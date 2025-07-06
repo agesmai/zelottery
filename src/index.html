@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en">
+<html lang="en" data-coreui-theme="dark">
 <head>
   <meta charset="utf-8">
   <title>Zero Lottery</title>
@@ -7,7 +7,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <link rel="icon" type="image/x-icon" href="favicon-new.ico">
 </head>
-<body>
-  <app-root></app-root>
+<body class="app header-fixed sidebar-fixed aside-menu-fixed sidebar-lg-show">
+<noscript>You need to enable JavaScript to run this app.</noscript>
+<app-root>
+  <!--Loading layout replaced by app after startup-->
+  <div class="spin-wrapper">
+    <div class="logo-container">
+      <img src="/assets/img/n-logo-red.png" class="logo-image">
+    </div>
+    <div class="spinner"></div>
+  </div>
+</app-root>
 </body>
 </html>
