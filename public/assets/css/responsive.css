@@ -1,0 +1,76 @@
+/* lg */
+@media (min-width: 1200px) {
+
+}
+
+/* md */
+@media (min-width: 992px) and (max-width: 1199px) {
+
+}
+
+/* sm */
+@media (min-width: 768px) and (max-width: 991px) {
+  .navbar-right li a {
+    font-size: 12px;
+    padding-right: 10px;
+  }
+
+  .social-icons ul li {
+    margin-bottom: 10px;
+  }
+
+}
+
+/* xs */
+@media (max-width: 767px) {
+  body {
+    font-size: 14px;
+  }
+
+  .navbar-brand {
+    padding: 0 15px 15px;
+  }
+
+  .navbar-toggle {
+    border: 1px solid #fff;
+  }
+
+  .navbar-toggle .icon-bar {
+    background-color: #fff;
+  }
+
+  .navbar-right li a {
+    font-size: 13px;
+    padding-bottom: 8px;
+    padding-top: 10px;
+  }
+
+  .social-icons ul li a {
+    font-size: 14px;
+    height: 30px;
+    line-height: 30px;
+    width: 30px;
+  }
+
+
+  #footer .footer-bottom {
+    text-align: center;
+  }
+
+  .footer-bottom p.pull-right {
+    float: none !important;
+  }
+}
+
+/* XS Portrait */
+@media (max-width: 479px) {
+
+  .team-members .col-sm-3,
+  .pricing-table .col-sm-3,
+  #portfolio .col-sm-3,
+  .blog-posts .col-sm-4 {
+    width: 100%;
+    float: none;
+  }
+}
+

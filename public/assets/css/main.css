@@ -1,0 +1,22 @@
+h1, h2, h3, h4, h5, h6 {
+  color: #333;
+}
+
+h2 {
+  font-size: 30px;
+  margin-bottom: 20px;
+}
+
+h3 {
+  font-size: 18px;
+}
+
+
+
+/*Presets*/
+html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed .main,
+html:not([dir="rtl"]) .sidebar-lg-show.sidebar-fixed .app-footer,
+html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .main,
+html:not([dir="rtl"]) .sidebar-show.sidebar-fixed .app-footer {
+  margin-left: 200px;
+}
