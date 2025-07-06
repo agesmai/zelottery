@@ -27,6 +27,7 @@ export const appConfig: ApplicationConfig = {
     provideFirestore(() => getFirestore()),
 
     //Core UI
-    IconSetService
+    IconSetService,
+    IconModule
   ]
 };
