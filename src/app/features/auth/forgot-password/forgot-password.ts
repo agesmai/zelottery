@@ -12,7 +12,7 @@ import {
 } from '@coreui/angular';
 
 import {IconModule, IconSetService} from '@coreui/icons-angular';
-import {cilUser, cilEnvelopeClosed} from '@coreui/icons';
+import {cilEnvelopeClosed, cilReload} from '@coreui/icons';
 
 @Component({
   selector: 'app-forgot-password',
@@ -35,16 +35,36 @@ export class ForgotPassword {
   message = signal<string | null>(null);
   error = signal<string | null>(null);
   loading = signal(false);
+  captcha = '';
+  captchaInput = '';
 
   private auth = inject(Auth);
   private iconSet = inject(IconSetService);
 
   constructor() {
-    this.iconSet.icons = {cilUser, cilEnvelopeClosed};
+    this.iconSet.icons = {cilReload, cilEnvelopeClosed};
+  }
+
+  ngOnInit() {
+    this.generateCaptcha();
+  }
+
+  generateCaptcha() {
+    const charset = 'ABCDEFGHJKLMNPQRSTUVWXYZ23456789';
+    this.captcha = Array.from({length: 5}, () =>
+      charset[Math.floor(Math.random() * charset.length)]
+    ).join('');
+    this.error.set('');
   }
 
   resetPassword() {
     this.loading.set(true);
+    if (this.captchaInput.trim().toUpperCase() !== this.captcha.toUpperCase()) {
+      this.generateCaptcha(); // Tạo CAPTCHA mới
+      this.error.set('Mã xác minh không đúng. Vui lòng thử lại.');
+      this.loading.set(false);
+      return;
+    }
     sendPasswordResetEmail(this.auth, this.email())
       .then(() => this.message.set('Đã gửi email đặt lại mật khẩu!'))
       .catch(err => this.error.set(err.message))
