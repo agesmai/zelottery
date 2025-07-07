@@ -1,23 +1,27 @@
-<div class="d-flex justify-content-center align-items-center min-vh-100">
-  <div class="card shadow-lg p-4" style="max-width: 400px; width: 100%;">
-    <div class="card-body text-center">
-      <h4 class="card-title mb-3">Xác minh email</h4>
-      <p class="text-body-secondary mb-4">{{ message }}</p>
-      <div class="d-grid gap-2">
-        <button class="btn btn-primary" (click)="resend()" [disabled]="loading">
-          Gửi lại email
-        </button>
-        <button class="btn btn-success" (click)="checkVerified()" [disabled]="loading">
-          Tôi đã xác minh xong
-        </button>
-      </div>
-      @if (loading) {
-        <div class="mt-3">
-          <div class="spinner-border text-info" role="status">
-            <span class="visually-hidden">Đang xử lý...</span>
+<div class="background">
+  <div class="container pt-3">
+    <div class="d-flex justify-content-center align-items-center min-vh-100">
+      <div class="card shadow-lg p-4" style="max-width: 400px; width: 100%;">
+        <div class="card-body text-center">
+          <h4 class="card-title mb-3">Xác minh email</h4>
+          <p class="text-body-secondary mb-4">{{ message }}</p>
+          <div class="d-grid gap-2">
+            <button class="btn btn-primary" (click)="resend()" [disabled]="loading">
+              Gửi lại email
+            </button>
+            <button class="btn btn-success" (click)="checkVerified()" [disabled]="loading">
+              Tôi đã xác minh xong
+            </button>
           </div>
+          @if (loading) {
+            <div class="mt-3">
+              <div class="spinner-border text-info" role="status">
+                <span class="visually-hidden">Đang xử lý...</span>
+              </div>
+            </div>
+          }
         </div>
-      }
+      </div>
     </div>
   </div>
 </div>
