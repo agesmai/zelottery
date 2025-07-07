@@ -1,8 +1,13 @@
-import { Routes } from '@angular/router';
-
-import { authGuard } from './core/guards/auth.guard';
+import {Routes} from '@angular/router';
+import {verifyAccessGuard} from './guards/verify-access-guard';
+import {authGuard} from './guards/auth-guard';
 
 export const routes: Routes = [
+  {
+    path: '',
+    loadComponent: () => import('./features/home/home').then(m => m.Home),
+    canActivate: [authGuard]
+  },
   {
     path: 'home',
     loadComponent: () => import('./features/home/home').then(m => m.Home),
@@ -22,6 +27,8 @@ export const routes: Routes = [
   },
   {
     path: 'email-verification',
-    loadComponent: () => import('./features/auth/email-verification/email-verification').then(m => m.EmailVerification),
-  }
+    loadComponent: () => import('./features/auth/email-verification/email-verification')
+      .then(m => m.EmailVerification),
+    canActivate: [verifyAccessGuard],
+  },
 ];

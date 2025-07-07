@@ -25,10 +25,6 @@
             </div>
           </div>
         }
-
-        @if (error()) {
-          <c-alert color="danger">{{ error() }}</c-alert>
-        }
         <div class="row">
           <div class="col-md-4 text-center">
             <img width="150" alt="App Logo"
@@ -67,6 +63,20 @@
                 />
               </c-input-group>
 
+              @if (lockedUntil) {
+                <c-alert color="danger"
+                         [style.fontSize.px]="14"
+                         class="flex-fill text-justify">
+                  Đăng nhập bị tạm khóa. Thử lại sau {{ remainingSeconds }} giây.
+                </c-alert>
+              }
+              @if (error()) {
+                <c-alert color="danger"
+                         [style.fontSize.px]="14"
+                         class="flex-fill text-justify">
+                  {{ error() }}
+                </c-alert>
+              }
               <button type="submit" cButton color="primary" class="w-100" [disabled]="loading()">Đăng nhập</button>
             </form>
 
