@@ -1,14 +1,24 @@
-import {CanActivateFn} from '@angular/router';
 import {inject} from '@angular/core';
-import {Auth} from '@angular/fire/auth';
+import {CanActivateFn, Router} from '@angular/router';
+import {Auth, onAuthStateChanged} from '@angular/fire/auth';
+import {Observable} from 'rxjs';
 
-export const authGuard: CanActivateFn = (route, state) => {
+export const authGuard: CanActivateFn = (): Observable<boolean> => {
   const auth = inject(Auth);
-  const user = auth.currentUser;
+  const router = inject(Router);
 
-  if (user) {
-    return true;
-  }
-  window.location.href = '/login';
-  return false;
+  return new Observable<boolean>((observer) => {
+    onAuthStateChanged(auth, (user) => {
+      if (user) {
+        observer.next(true);
+      } else {
+        router.navigate(['/login']).then(() => {
+          observer.next(false);
+          observer.complete();
+        });
+        observer.next(false);
+      }
+      observer.complete();
+    });
+  });
 };

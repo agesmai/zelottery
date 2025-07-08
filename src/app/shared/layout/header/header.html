@@ -1,12 +1,15 @@
 <c-header position="sticky" class="mb-4 border-bottom bg-white shadow-sm">
   <c-container class="d-flex justify-content-between align-items-center">
     <c-header-brand routerLink="/">
-      <img src="/assets/img/logo-nmanager.png" alt="Zelottery" height="32" />
+      <img src="/assets/logo.svg" alt="Zelottery" height="32" />
       <span class="ms-2 fw-bold">Zelottery</span>
     </c-header-brand>
+
     <c-header-nav class="d-flex align-items-center gap-3">
-      <c-header-text class="text-muted">Xin chào, PVAnh</c-header-text>
-      <button cButton color="secondary" size="sm" variant="outline">Đăng xuất</button>
+      <c-header-text class="text-muted">
+        Xin chào, {{ (user$ | async)?.displayName || (user$ | async)?.email }}
+      </c-header-text>
+      <button cButton color="secondary" size="sm" variant="outline" (click)="logout()">Đăng xuất</button>
     </c-header-nav>
   </c-container>
 </c-header>
