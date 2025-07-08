@@ -1,7 +1,7 @@
 export const environment = {
   production: false,
   firebase: {
-    apiKey: "AIzaSyB2k6CaXIBKADoZZJKfI1EC5pesNkx_JQ4",
+    apiKey: "xxx",
     authDomain: "zelottery.firebaseapp.com",
     projectId: "zelottery",
     storageBucket: "zelottery.firebasestorage.app",
